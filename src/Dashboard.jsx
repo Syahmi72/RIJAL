@@ -77,25 +77,26 @@ function HomeTab() {
 
   const handleScanNFC = async () => {
     setIsScanning(true);
-    setStatusText('Mencari sinyal kartu KTM...');
+    setStatusText('Sensor NFC Aktif, Silahkan Tempel Kartu...');
+    
+    try {
+      const ndef = new window.NDEFReader();
+      await ndef.scan();
+      
+      ndef.onreading = (event) => {
+        const serialNumber = event.serialNumber;
+        console.log("Kartu Terbaca: ", serialNumber);
+        eksekusiAbsenDatabase(serialNumber); // Panggil fungsi database kamu
+      };
+      
+      ndef.onreadingerror = () => {
+        setStatusText("Gagal membaca, coba posisikan kartu lebih pas.");
+      };
 
-    if ('NDEFReader' in window) {
-      try {
-        const ndef = new window.NDEFReader();
-        await ndef.scan();
-        ndef.onreading = async (e) => {
-          await eksekusiAbsenDatabase(e.serialNumber);
-        };
-      } catch (err) {
-        alert("Akses sensor NFC web ditolak.");
-        setIsScanning(false);
-        setStatusText('Gagal Mengakses Sensor');
-      }
-    } else {
-      // Jalankan simulasi UID terdaftar jika dites lewat browser komputer
-      setTimeout(async () => {
-        await eksekusiAbsenDatabase("99:88:77:66:55");
-      }, 1500);
+    } catch (error) {
+      console.error(error);
+      alert("NFC Error: Pastikan NFC HP Aktif & Izin Browser Diberikan.");
+      setIsScanning(false);
     }
   };
 
