@@ -1,75 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background-color: #e2e8f0; display: flex; justify-content: center; min-height: 100vh; }
+#root { width: 100%; max-width: 480px; background-color: #f8fafc; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
 
-body {
-  background-color: #e2e8f0; /* Background abu-abu luar layar */
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-#root {
-  width: 100%;
-  max-width: 480px; 
-  background-color: #f8fafc; /* Background utama aplikasi */
-  min-height: 100vh;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- LOGIN SCREEN --- */
-.login-bg {
-  background-color: #eef2ff;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.login-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  width: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  background-color: #2563eb;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 20px auto;
-}
+/* --- LOGIN & REGISTER --- */
+.login-bg { background-color: #eef2ff; height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.login-card { background: white; padding: 40px 30px; border-radius: 16px; width: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.login-card.scrollable { max-height: 90vh; overflow-y: auto; padding: 30px; }
+.icon-circle { width: 60px; height: 60px; background-color: #2563eb; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; }
 .input-group { margin-bottom: 20px; text-align: left; }
 .input-label { display: block; font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 8px; }
-.input-field { width: 100%; padding: 14px 16px; background-color: #f1f5f9; border: none; border-radius: 8px; font-size: 14px; color: #334155; }
-.input-field:focus { outline: 2px solid #2563eb; background-color: #fff; }
+.input-field { width: 100%; padding: 14px 16px; background-color: #f1f5f9; border: 1px solid transparent; border-radius: 8px; font-size: 14px; color: #334155; }
+.input-field:focus { outline: none; border-color: #2563eb; background-color: #fff; }
 .btn-dark { width: 100%; padding: 14px; background-color: #020617; color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.2s; }
 .btn-dark:active { transform: scale(0.98); }
+.btn-dark:disabled { background-color: #94a3b8; cursor: not-allowed; }
+.link-text { color: #2563eb; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; margin-top: 20px; display: block; background: none; border: none; width: 100%; }
+.link-text:hover { text-decoration: underline; }
 
 /* --- DASHBOARD HEADER --- */
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+.app-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 10; }
 .header-brand { display: flex; align-items: center; gap: 12px; }
 .brand-icon { width: 40px; height: 40px; background: #2563eb; border-radius: 10px; display: flex; justify-content: center; align-items: center; }
 .btn-outline { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid #cbd5e1; background: white; border-radius: 6px; font-size: 13px; font-weight: 500; color: #334155; cursor: pointer; }
@@ -78,19 +29,8 @@ body {
 .content-area { flex: 1; padding: 20px; overflow-y: auto; padding-bottom: 80px; }
 .section-title { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
 .section-subtitle { font-size: 14px; color: #64748b; margin-bottom: 20px; }
-
-/* NFC Scan Box */
-.scan-box {
-  background-color: #f0f9ff;
-  border: 1px dashed #bae6fd;
-  border-radius: 16px;
-  padding: 30px 20px;
-  text-align: center;
-  margin-bottom: 20px;
-}
+.scan-box { background-color: #f0f9ff; border: 1px dashed #bae6fd; border-radius: 16px; padding: 30px 20px; text-align: center; margin-bottom: 20px; }
 .nfc-circle { width: 80px; height: 80px; background-color: #3b82f6; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 16px auto; }
-
-/* Stat Cards */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .stat-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
 .stat-title { font-size: 13px; color: #64748b; margin-bottom: 8px; }
@@ -99,32 +39,16 @@ body {
 .stat-value.green { color: #16a34a; }
 .stat-desc { font-size: 12px; color: #64748b; }
 
-/* History List */
+/* --- HISTORY & CARDS --- */
 .history-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .icon-success { width: 40px; height: 40px; background: #dcfce7; color: #16a34a; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-.icon-danger { width: 40px; height: 40px; background: #fee2e2; color: #ef4444; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
 .history-info { flex: 1; }
 .history-title { font-weight: 600; color: #0f172a; font-size: 15px; margin-bottom: 2px; }
 .history-time { font-size: 13px; color: #64748b; }
 .badge-dark { background: #020617; color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-.badge-red { background: #e11d48; color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-.badge-gray { background: #e2e8f0; color: #475569; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-
-/* Gradient Card (Mata Kuliah) */
-.gradient-card {
-  background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%);
-  border-radius: 16px;
-  padding: 24px;
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  margin-bottom: 24px;
-}
+.gradient-card { background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%); border-radius: 16px; padding: 24px; color: white; display: flex; justify-content: space-around; text-align: center; margin-bottom: 24px; }
 .grad-item-value { font-size: 24px; font-weight: 700; margin: 8px 0 4px 0; }
 .grad-item-label { font-size: 12px; opacity: 0.9; }
-
-/* Course Card */
 .course-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
 .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
 .course-title { font-size: 16px; font-weight: 600; color: #0f172a; }
@@ -134,78 +58,13 @@ body {
 .progress-bar { width: 100%; height: 6px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
 .progress-fill { height: 100%; background: #020617; }
 
-/* --- BOTTOM NAV --- */
-.bottom-nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  padding: 12px 0 20px 0;
-  z-index: 10;
-}
+/* --- BOTTOM NAV & MODAL --- */
+.bottom-nav { position: absolute; bottom: 0; width: 100%; background: white; border-top: 1px solid #e2e8f0; display: flex; padding: 12px 0 20px 0; z-index: 10; }
 .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: none; color: #64748b; cursor: pointer; }
 .nav-item.active { color: #2563eb; }
 .nav-text { font-size: 12px; font-weight: 600; }
-
-/* --- MODAL / BOTTOM SHEET --- */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 23, 42, 0.6);
-  z-index: 50;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* Supaya nempel di bawah */
-}
-.modal-content {
-  background: white;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 24px 24px 0 0;
-  padding: 24px;
-  animation: slideUp 0.3s ease-out;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.btn-close {
-  background: #f1f5f9;
-  border: none;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; justify-content: center; align-items: center;
-  cursor: pointer;
-  color: #64748b;
-}
-
-/* --- TAMBAHAN UNTUK REGISTER & LINK --- */
-.link-text {
-  color: #2563eb;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 20px;
-  display: block;
-  background: none;
-  border: none;
-  width: 100%;
-}
-.link-text:hover { text-decoration: underline; }
-
-.login-card.scrollable {
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 30px;
-}
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.6); z-index: 50; display: flex; justify-content: center; align-items: flex-end; }
+.modal-content { background: white; width: 100%; max-width: 480px; border-radius: 24px 24px 0 0; padding: 24px; animation: slideUp 0.3s ease-out; max-height: 85vh; overflow-y: auto; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.btn-close { background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; color: #64748b; }
